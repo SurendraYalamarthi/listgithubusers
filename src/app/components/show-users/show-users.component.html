@@ -1,0 +1,19 @@
+<app-header [showBack]='false' [title]="'Users'"></app-header>
+<div class="container">
+    <div class="input-container">
+        <input #input type="text" [(ngModel)]="search" name="search" placeholder="search for user" autocomplete="off" (keyup)="filterUserList($event)" (keyup.arrowup)="Move($event, 'UP')" (keyup.arrowdown)="Move($event, 'DOWN')" (keydown.enter)="selectValue()" />
+        <img src="../../../assets//images/icon-search.svg" />
+    </div>
+    <div class="userlist-block">
+        <ul #resultSet>
+            <li *ngFor="let user of usersList" [ngClass]="{'hover': user.mouseEntered}" (mouseover)="mouseEntered(user)" (mouseout)="mouseEntered('')" (click)="getRepositories(user)">
+                <span>{{user.id}}</span>
+                <div class="user-avatar">
+                    <img [src]="user.avatar_url" />
+                </div>
+                <span>{{user.login}}</span>
+            </li>
+        </ul>
+    </div>
+
+</div>

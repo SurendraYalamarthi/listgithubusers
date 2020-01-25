@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0 !important;
+}
+
+.container {
+    width: 80%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.input-container {
+    display: flex;
+
+    input {
+        margin: 10px 0;
+        width: 100%;
+        padding: 10px;
+    }
+
+    img {
+        width: 30px;
+    }
+}
+
+.userlist-block {
+    ul {
+        list-style: none;
+        width: 100%;
+        margin: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+        height: 75vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        li {
+            cursor: pointer;
+            display: flex;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            font-size: 20px;
+            width: 90%;
+
+            &.hover {
+                background-color: #ccc;
+                z-index: 999;
+            }
+
+            span {
+                padding: 0 10px;
+                width: 30px;
+            }
+
+            .user-avatar {
+                padding: 0 30px;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 30px;
+                }
+            }
+        }
+    }
+}
+
+.repos {
+    ul {
+        list-style: none;
+        padding-inline-start: 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            cursor: pointer;
+            width: 80%;
+            max-width: 400px;
+            min-height: 200px;
+            height: auto;
+            text-align: center;
+            margin: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px #ccc;
+
+            .repo-name {
+                border-bottom: 1px solid #ccc;
+                padding: 20px 0
+            }
+
+            .repo-desc {
+                padding: 10px 0;
+            }
+
+            &:hover {
+                zoom: 1.01;
+                background-color: #888;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<app-header [showBack]='true' [title]="'Repositories'"></app-header>
+<div class="container">
+    <div class="repos">
+        <ul>
+            <li class="list" *ngFor="let repo of repositoriesList" (click)="viewRepository(repo)">
+                <div class="repo-name">
+                    <span>{{repo.name}}</span>
+                </div>
+                <div class="repo-desc">
+                    <span>{{repo.description}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
