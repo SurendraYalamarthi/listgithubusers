@@ -19,16 +19,19 @@ export class ShowUsersComponent implements OnInit {
   constructor(private callApiService: CallapiService, private router: Router) { }
 
   ngOnInit() {
+    // checking whether users service called or not.
     if (!this.callApiService.usersList || this.callApiService.usersList.length === 0) {
       this.getUsersList();
     } else {
-      this.usersList = this.callApiService.usersList;
+      // getting users list from api
+      this.usersList = Object.assign([], this.callApiService.usersList);
     }
   }
 
   getUsersList() {
+    // fetching users list from api
     this.callApiService.getDataFromApi('users').subscribe((response) => {
-      console.log(response);
+      // Storing users list in service
       this.callApiService.usersList = Object.assign([], response);
       this.usersList = Object.assign([], response);
     }, (error) => {
@@ -55,6 +58,7 @@ export class ShowUsersComponent implements OnInit {
     }
   }
 
+  // if user selected using arrows and press enter key this function will trigger
   selectValue() {
     const selectedIndex = this.usersList.findIndex(data => data.mouseEntered);
     if (selectedIndex !== -1) {
@@ -63,16 +67,18 @@ export class ShowUsersComponent implements OnInit {
     }
   }
 
+  // function to fetch repositories
   getRepositories(user) {
     this.callApiService.getDetailsFromApi(user.repos_url).subscribe((response) => {
+      // storing repositories in service
       this.callApiService.repositoriesList = response;
-      console.log(response);
       this.router.navigate(['/repositories']);
     }, (error) => {
       console.error(error);
-    })
+    });
   }
 
+  // function to handle up and down arrows
   Move(event, dir) {
     const posStart = this.input.nativeElement.selectionStart;
     const posEnd = this.input.nativeElement.selectionEnd;
@@ -104,6 +110,7 @@ export class ShowUsersComponent implements OnInit {
     this.input.nativeElement.selectionEnd = posEnd;
   }
 
+  // function to add class when mouse hover on user
   mouseEntered(result) {
     this.usersList = this.usersList.map(data => {
       if (data === result) {

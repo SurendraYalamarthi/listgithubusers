@@ -14,10 +14,12 @@ export class CallapiService {
 
   constructor(private http: HttpClient) { }
 
+  // function to fetch data from api which have different endpoints
   getDataFromApi(endPoint: string) {
     return this.http.get(environment.apiUrl + '/' + endPoint);
   }
 
+  // function to fetch data from api by passing whole url
   getDetailsFromApi(reposUrl: string) {
     return this.http.get(reposUrl);
   }

@@ -14,10 +14,12 @@ export class RepositoriesComponent implements OnInit {
   constructor(private callApiService: CallapiService, private router: Router) { }
 
   ngOnInit() {
+    // getting stored repositories from service
     this.repositoriesList = this.callApiService.repositoriesList;
   }
 
   viewRepository(repo) {
+    // open url on selection of repositories
     window.open(repo.html_url, '_blank');
   }
 

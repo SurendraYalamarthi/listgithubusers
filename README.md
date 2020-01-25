@@ -14,14 +14,24 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+# ScreenShots
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Landing Screen
 
-## Running end-to-end tests
+On init of this screen users list will be fetched from github api from the link <a>https://api.github.com/users</a>.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+<img src='screenshots/landingScreen.PNG' />
 
-## Further help
+## Search option
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<img src='screenshots/search_user.PNG' />
+
+On selection of user, repositories List for the selected user will be fetched using the url specified in 'repos_url' tag in user List. Then page will be redirected to repositories screen.
+
+## Repositories Screen
+
+All the repositories fetched for user will be displayed in this screen.
+
+<img src='screenshots/repositories_list.PNG' />
+
+On selection of a repository, link specified in 'html_url' tag in repositories list will be opened in new tab.
